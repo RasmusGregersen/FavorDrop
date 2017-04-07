@@ -1,5 +1,5 @@
 package Firebase;
-
+/*
 import Firebase.Model.Clients;
 import Firebase.Model.Order;
 import Firebase.Model.Product;
@@ -15,10 +15,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
  * Created by Rasmus on 17-03-2017.
  */
 public class FirebaseImpl {
+/*
     private FirebaseDatabase db;
     private FirebaseAuth auth;
     static DatabaseReference ref;
@@ -49,10 +49,14 @@ public class FirebaseImpl {
 
     }
 
+    public DatabaseReference getRef() {
+        return ref;
+    }
+
     public void addCustomer() {
         DatabaseReference customerRef = ref.child("customers");
         String ID = customerRef.push().getKey();
-        customerRef.child(ID).setValue(new Clients("Rasmus Gregersen","Vejlegårdsparken 2, 1. 17, 2665 Vallensbæk Strand"));
+        customerRef.child(ID).setValue(new Clients("Lasse Myrup","Vejlegårdsparken 2, 1. 17, 2665 Vallensbæk Strand"));
     }
     public void addOrder() {
         DatabaseReference orderRef = ref.child("orders");
@@ -61,4 +65,5 @@ public class FirebaseImpl {
         list.add(new Product("Vare","Adresse","Kommentar"));
         orderRef.child(ID).setValue(new Order(23452543,2141345,list,50));
     }
+    */
 }
