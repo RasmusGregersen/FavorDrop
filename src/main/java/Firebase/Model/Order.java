@@ -1,4 +1,4 @@
-package Model;
+package Firebase.Model;
 
 import java.util.ArrayList;
 

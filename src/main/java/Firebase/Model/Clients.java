@@ -1,9 +1,9 @@
-package Model;
+package Firebase.Model;
 
 /**
  * Created by Rasmus on 20-03-2017.
  */
-public class Customer {
+public class Clients {
     public String name;
     public String address;
     // Vej
@@ -12,11 +12,11 @@ public class Customer {
     // Postnummer
     // By
 
-    public Customer(String name, String address) {
+    public Clients(String name, String address) {
         this.name = name;
         this.address = address;
     }
 
-    public Customer() {
+    public Clients() {
     }
 }

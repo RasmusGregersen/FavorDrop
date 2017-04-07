@@ -1,6 +1,8 @@
-import Model.Customer;
-import Model.Order;
-import Model.Product;
+package Firebase;
+
+import Firebase.Model.Clients;
+import Firebase.Model.Order;
+import Firebase.Model.Product;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,7 +32,7 @@ public class FirebaseImpl {
         // Fetch the service account key JSON file contents
         try {
             FileInputStream serviceAccount = new FileInputStream("serviceAccountKey.json");
-            // Authenticate with FirebaseImpl
+            // Authenticate with Firebase.FirebaseImpl
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredential(FirebaseCredentials.fromCertificate(serviceAccount))
                     .setDatabaseUrl("https://favordrop.firebaseio.com/")
@@ -50,7 +52,7 @@ public class FirebaseImpl {
     public void addCustomer() {
         DatabaseReference customerRef = ref.child("customers");
         String ID = customerRef.push().getKey();
-        customerRef.child(ID).setValue(new Customer("Rasmus Gregersen","Vejlegårdsparken 2, 1. 17, 2665 Vallensbæk Strand"));
+        customerRef.child(ID).setValue(new Clients("Rasmus Gregersen","Vejlegårdsparken 2, 1. 17, 2665 Vallensbæk Strand"));
     }
     public void addOrder() {
         DatabaseReference orderRef = ref.child("orders");
