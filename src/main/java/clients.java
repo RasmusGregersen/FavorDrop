@@ -18,7 +18,8 @@ public class clients {
         return res;
     }
 
-    @POST @Consumes("application/json")
+    @POST
+    @Consumes("application/json")
     public void addClient(JaxBean input) {
         Client client = ClientBuilder.newClient();
         client.target("https://favordrop.firebaseio.com/customers.json").request(MediaType.APPLICATION_JSON).post(Entity.json(input));
