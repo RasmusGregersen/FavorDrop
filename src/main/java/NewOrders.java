@@ -1,3 +1,7 @@
+/**
+ * Created by LarsMyrup on 12/04/2017.
+ */
+
 import javax.ws.rs.*;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -8,7 +12,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Path("/clients")
-public class clients {
+public class NewOrders {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -25,4 +29,3 @@ public class clients {
         return client.target("https://favordrop.firebaseio.com/clients.json").request(MediaType.APPLICATION_JSON).post(Entity.json(input));
     }
 }
-
