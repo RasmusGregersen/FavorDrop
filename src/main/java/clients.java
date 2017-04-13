@@ -24,5 +24,33 @@ public class clients {
         Client client = ClientBuilder.newClient();
         return client.target("https://favordrop.firebaseio.com/clients.json").request(MediaType.APPLICATION_JSON).post(Entity.json(input));
     }
+
+    @Path("/{id}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getClient(String id) {
+        Client client = ClientBuilder.newClient();
+        return client.target("https://favordrop.firebaseio.com/clients/"+ id + ".json").request(MediaType.APPLICATION_JSON).get();
+    }
+    /*
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateClient(String id, String input) {
+        Client client = ClientBuilder.newClient();
+        return client.target("https://favordrop.firebaseio.com/clients/"+ id + ".json").request(MediaType.APPLICATION_JSON).put(Entity.json(input));
+    }
+    */
+
+    @Path("/{id}/orders")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getClientOrders(String id) {
+        Client client = ClientBuilder.newClient();
+        return client.target("https://favordrop.firebaseio.com/clients/" + id + "/Orders.json").request(MediaType.APPLICATION_JSON).get();
+    }
+
+
+
+
 }
 
