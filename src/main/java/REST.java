@@ -12,6 +12,7 @@ public class REST extends Application{
     public Set<Class<?>> getClasses() {
         HashSet h = new HashSet<Class<?>>();
         h.add( clients.class );
+        h.add ( orders.class );
 
         return h;
     }
