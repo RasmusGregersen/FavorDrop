@@ -25,21 +25,22 @@ public class clients {
         return client.target("https://favordrop.firebaseio.com/clients.json").request(MediaType.APPLICATION_JSON).post(Entity.json(input));
     }
 
-    @Path("/{id}")
     @GET
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getClient(String id) {
         Client client = ClientBuilder.newClient();
         return client.target("https://favordrop.firebaseio.com/clients/"+ id + ".json").request(MediaType.APPLICATION_JSON).get();
     }
-    /*
+
     @PUT
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateClient(String id, String input) {
+    public Response updateClient(@PathParam("id") String id, String input) {
         Client client = ClientBuilder.newClient();
         return client.target("https://favordrop.firebaseio.com/clients/"+ id + ".json").request(MediaType.APPLICATION_JSON).put(Entity.json(input));
     }
-    */
+
 
     @Path("/{id}/orders")
     @GET
