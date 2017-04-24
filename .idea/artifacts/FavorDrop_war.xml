@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="FavorDrop:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/FavorDrop_war</output-path>
+    <root id="archive" name="FavorDrop_war.war">
+      <element id="artifact" artifact-name="FavorDrop:war exploded" />
+    </root>
+  </artifact>
+</component>

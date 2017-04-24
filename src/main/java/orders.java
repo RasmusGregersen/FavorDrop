@@ -64,8 +64,7 @@ public class orders {
         String[] a = new String[3];
         try {
             a[0] = Json.getString("partner id");
-            a[1] = Json.getString("partner name");
-            a[2] = Json.getString("acceptance time");
+            a[1] = Json.getString("acceptance time");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -83,8 +82,7 @@ public class orders {
         }
 
         output.put("partner id", a[0]);
-        output.put("partner name", a[1]);
-        output.put("acceptance time", a[2]);
+        output.put("acceptance time", a[1]);
 
         deleteNewOrder(id);
 
