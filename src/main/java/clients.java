@@ -10,6 +10,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Path("/clients")
 public class clients {
 
+    @OPTIONS
+    @Path("/{id}")
+    public Response getOptions() {
+        return Response.ok()
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Methods", "POST, GET, PUT, UPDATE, OPTIONS")
+                .header("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With").build();
+    }
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getClichedMessage() {
