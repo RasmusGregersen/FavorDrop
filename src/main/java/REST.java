@@ -11,8 +11,9 @@ public class REST extends Application{
     @Override
     public Set<Class<?>> getClasses() {
         HashSet h = new HashSet<Class<?>>();
-        h.add( clients.class );
-        h.add ( orders.class );
+        h.add( Clients.class );
+        h.add ( Orders.class );
+        h.add ( Partners.class);
 
         return h;
     }

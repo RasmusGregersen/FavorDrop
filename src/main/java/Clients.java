@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Path("/clients")
-public class clients {
+public class Clients {
 
     @OPTIONS
     @Path("/{id}")

@@ -12,7 +12,7 @@ import javax.ws.rs.core.*;
  * Created by LarsMyrup on 16/04/2017.
  */
 @Path("/partners")
-public class partners {
+public class Partners {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -43,7 +43,7 @@ public class partners {
     @Produces(MediaType.APPLICATION_JSON)
     public Response setOrderInPartnerInService(String input, @PathParam("pid") String pid, @PathParam("oid") String oid) {
         Client client = ClientBuilder.newClient();
-        return client.target("https://favordrop.firebaseio.com/partners/" + pid + "/orders/inservice/" + oid + ".json").request(MediaType.APPLICATION_JSON).get();
+        return client.target("https://favordrop.firebaseio.com/partners/" + pid + "/orders/inservice/" + oid + ".json").request(MediaType.APPLICATION_JSON).put(Entity.json(input.toString()));
     }
 
     @DELETE
@@ -68,7 +68,7 @@ public class partners {
     public Response setOrderInPartnerCompleted(String input, @PathParam("pid") String pid, @PathParam("oid") String oid) {
         Client client = ClientBuilder.newClient();
         deleteOrderInPartnerInService(pid, oid);
-        return client.target("https://favordrop.firebaseio.com/partners/" + pid + "/orders/completed/" + oid + ".json").request(MediaType.APPLICATION_JSON).get();
+        return client.target("https://favordrop.firebaseio.com/partners/" + pid + "/orders/completed/" + oid + ".json").request(MediaType.APPLICATION_JSON).put(Entity.json(input.toString()));
     }
 
 

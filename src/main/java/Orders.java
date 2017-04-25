@@ -1,6 +1,5 @@
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
-import org.codehaus.jettison.json.JSONTokener;
 
 import javax.ws.rs.*;
 import javax.ws.rs.client.Client;
@@ -12,7 +11,7 @@ import javax.ws.rs.core.*;
  * Created by LarsMyrup on 16/04/2017.
  */
 @Path("/orders")
-public class orders {
+public class Orders {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -106,11 +105,15 @@ public class orders {
             e.printStackTrace();
         }
 
-        partners partners = new partners();
-        partners.setOrderInPartnerInService(input, pid, oid);
-        clients clients = new clients();
-        clients.setClientOrderInService(input, uid, oid);
+        System.out.println("hej mor");
+
+        Partners partners = new Partners();
+        partners.setOrderInPartnerInService(output.toString(), pid, oid);
+        Clients clients = new Clients();
+        clients.setClientOrderInService(output.toString(), uid, oid);
         deleteNewOrder(oid);
+
+        System.out.println("ska der ske");
 
         return client.target("https://favordrop.firebaseio.com/orders/inservice/" + oid + ".json").request(MediaType.APPLICATION_JSON).put(Entity.json(output.toString()));
     }
@@ -159,10 +162,11 @@ public class orders {
             e.printStackTrace();
         }
 
-        partners partners = new partners();
-        partners.setOrderInPartnerCompleted(input, pid, oid);
-        clients clients = new clients();
-        clients.setClientOrderCompleted(input, uid, oid);
+
+        Partners partners = new Partners();
+        partners.setOrderInPartnerCompleted(output.toString(), pid, oid);
+        Clients clients = new Clients();
+        clients.setClientOrderCompleted(output.toString(), uid, oid);
         deleteNewOrder(oid);
 
         return client.target("https://favordrop.firebaseio.com/orders/completed/" + oid + ".json").request(MediaType.APPLICATION_JSON).put(Entity.json(output.toString()));

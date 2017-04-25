@@ -59,7 +59,7 @@ public class FirebaseImpl {
         customerRef.child(ID).setValue(new Clients("Lasse Myrup","Vejlegårdsparken 2, 1. 17, 2665 Vallensbæk Strand"));
     }
     public void addOrder() {
-        DatabaseReference orderRef = ref.child("orders");
+        DatabaseReference orderRef = ref.child("Orders");
         String ID = orderRef.push().getKey();
         ArrayList<Product> list = new ArrayList<Product>();
         list.add(new Product("Vare","Adresse","Kommentar"));
