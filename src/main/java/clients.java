@@ -39,7 +39,7 @@ public class clients {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getClient(String id) {
+    public Response getClient(@PathParam("id") String id) {
         Client client = ClientBuilder.newClient();
         return client.target("https://favordrop.firebaseio.com/clients/"+ id + ".json").request(MediaType.APPLICATION_JSON).get();
     }
@@ -56,7 +56,7 @@ public class clients {
     @GET
     @Path("/{id}/orders")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getClientOrders(String id) {
+    public Response getClientOrders(@PathParam("id") String id) {
         Client client = ClientBuilder.newClient();
         return client.target("https://favordrop.firebaseio.com/clients/" + id + "/orders.json").request(MediaType.APPLICATION_JSON).get();
     }
@@ -95,7 +95,7 @@ public class clients {
     @GET
     @Path("/{id}/orders/completed")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getClientOrdersCompleted(String id) {
+    public Response getClientOrdersCompleted(@PathParam("id") String id) {
         Client client = ClientBuilder.newClient();
         return client.target("https://favordrop.firebaseio.com/clients/" + id + "/orders/completed.json").request(MediaType.APPLICATION_JSON).get();
     }
