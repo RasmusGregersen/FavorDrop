@@ -27,6 +27,8 @@ public class clients {
         return res;
     }
 
+
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addClient(String input) {
@@ -51,13 +53,62 @@ public class clients {
     }
 
 
-    @Path("/{id}/orders")
     @GET
+    @Path("/{id}/orders")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getClientOrders(String id) {
         Client client = ClientBuilder.newClient();
-        return client.target("https://favordrop.firebaseio.com/clients/" + id + "/Orders.json").request(MediaType.APPLICATION_JSON).get();
+        return client.target("https://favordrop.firebaseio.com/clients/" + id + "/orders.json").request(MediaType.APPLICATION_JSON).get();
     }
+
+    @PUT
+    @Path("/{uid}/orders/new/{oid}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response addNewOrderToClient(String input, @PathParam("uid") String uid, @PathParam("oid") String oid) {
+        Client client = ClientBuilder.newClient();
+        return client.target("https://favordrop.firebaseio.com/clients/" + uid + "/orders/new/" + oid + ".json").request(MediaType.APPLICATION_JSON).put(Entity.json(input));
+    }
+
+    @DELETE
+    @Path("/{uid}/orders/new/{oid}")
+    public Response deleteNewOrderInClient(@PathParam("uid") String uid, @PathParam("oid") String oid) {
+        Client client = ClientBuilder.newClient();
+        return client.target("https://favordrop.firebaseio.com/clients/" + uid + "/orders/new/" + oid + ".json").request(MediaType.APPLICATION_JSON).delete();
+    }
+
+    @PUT
+    @Path("/{uid}/orders/inservice/{oid}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response setClientOrderInService(String input, @PathParam("uid") String uid, @PathParam("oid") String oid) {
+        Client client = ClientBuilder.newClient();
+        deleteNewOrderInClient(uid, oid);
+        return client.target("https://favordrop.firebaseio.com/clients/" + uid + "/orders/inservice/" + oid + ".json").request(MediaType.APPLICATION_JSON).put(Entity.json(input));
+    }
+
+    @DELETE
+    @Path("/{uid}/orders/inservice/{oid}")
+    public Response deleteInServiceOrderInClient(@PathParam("uid") String uid, @PathParam("oid") String oid) {
+        Client client = ClientBuilder.newClient();
+        return client.target("https://favordrop.firebaseio.com/clients/" + uid + "/orders/inservice/" + oid + ".json").request(MediaType.APPLICATION_JSON).delete();
+    }
+
+    @GET
+    @Path("/{id}/orders/completed")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getClientOrdersCompleted(String id) {
+        Client client = ClientBuilder.newClient();
+        return client.target("https://favordrop.firebaseio.com/clients/" + id + "/orders/completed.json").request(MediaType.APPLICATION_JSON).get();
+    }
+
+    @PUT
+    @Path("/{uid}/orders/completed/{oid}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response setClientOrderCompleted(String input, @PathParam("uid") String uid, @PathParam("oid") String oid) {
+        Client client = ClientBuilder.newClient();
+        deleteInServiceOrderInClient(uid, oid);
+        return client.target("https://favordrop.firebaseio.com/clients/" + uid + "/orders/completed/" + oid + ".json").request(MediaType.APPLICATION_JSON).put(Entity.json(input));
+    }
+
 
 
 

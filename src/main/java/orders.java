@@ -24,9 +24,35 @@ public class orders {
     @POST
     @Path("/new")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addNewOrder(String input) {
+    public int addNewOrder(String input) {
         Client client = ClientBuilder.newClient();
-        return client.target("https://favordrop.firebaseio.com/orders/new.json").request(MediaType.APPLICATION_JSON).post(Entity.json(input));
+
+        int foo = getIndex();
+
+        client.target("https://favordrop.firebaseio.com/orders/new/" + foo + ".json").request(MediaType.APPLICATION_JSON).put(Entity.json(input));
+        JSONObject jInput;
+        String clientId = "";
+        try {
+            jInput = new JSONObject(input);
+            clientId = jInput.getString("client id");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        client.target("https://favordrop.firebaseio.com/clients/" + clientId + "/orders/new/" + foo + ".json").request(MediaType.APPLICATION_JSON).put(Entity.json(input));
+
+        return foo;
+    }
+
+    public int getIndex() {
+        Client client = ClientBuilder.newClient();
+        String counter = client.target("https://favordrop.firebaseio.com/orders/totalorders.json").request(MediaType.TEXT_PLAIN).get().readEntity(String.class);
+
+        int foo = Integer.parseInt(counter);
+        foo++;
+        client.target("https://favordrop.firebaseio.com/orders/totalorders.json").request(MediaType.TEXT_PLAIN).put(Entity.text(foo));
+        return foo;
+
     }
 
     @GET
@@ -43,102 +69,103 @@ public class orders {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getNewOrder(String id) {
         Client client = ClientBuilder.newClient();
-        return (client.target("https://favordrop.firebaseio.com/orders/new/" + id + ".json").request(MediaType.APPLICATION_JSON).get());
-    }
-
-    @GET
-    @Path("/new/{id}")
-    public Response deleteNewOrder(String id) {
-        Client client = ClientBuilder.newClient();
-        return (client.target("https://favordrop.firebaseio.com/orders/new/" + id + ".json").request(MediaType.APPLICATION_JSON).delete());
-    }
-
-    @PUT
-    @Path("/inservice/{id}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response SetInService(String input, @PathParam("id") String id) throws JSONException {
-
-        JSONObject Json = new JSONObject(new JSONTokener(input));
-
-        Client client = ClientBuilder.newClient();
-        String[] a = new String[3];
-        try {
-            a[0] = Json.getString("partner id");
-            a[1] = Json.getString("acceptance time");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-
-        Response hej = getNewOrder(id);
-        String responseAsString = hej.readEntity(String.class);
-
-        JSONObject output = null;
-
-        try {
-            output = new JSONObject(responseAsString);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        output.put("partner id", a[0]);
-        output.put("acceptance time", a[1]);
-
-        deleteNewOrder(id);
-
-        return client.target("https://favordrop.firebaseio.com/orders/inservice/" + id + ".json").request(MediaType.APPLICATION_JSON).put(Entity.json(output.toString()));
-    }
-
-    @GET
-    @Path("/inservice/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getInServiceOrder(String id) {
-        Client client = ClientBuilder.newClient();
-        return (client.target("https://favordrop.firebaseio.com/orders/inservice/" + id + ".json").request(MediaType.APPLICATION_JSON).get());
+        return (client.target("https://favordrop.firebaseio.com/orders/new/" + id + ".json").request().get());
     }
 
     @DELETE
-    @Path("/new/{id}")
-    public Response deleteInServiceOrder(String id) {
+    @Path("/new/{oid}")
+    public Response deleteNewOrder(@PathParam("oid") String oid) {
         Client client = ClientBuilder.newClient();
-        return (client.target("https://favordrop.firebaseio.com/orders/inservice/" + id + ".json").request(MediaType.APPLICATION_JSON).delete());
+        return (client.target("https://favordrop.firebaseio.com/orders/new/" + oid + ".json").request(MediaType.APPLICATION_JSON).delete());
     }
 
     @PUT
-    @Path("/completed/{id}")
+    @Path("/inservice/{oid}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response SetAsCompleted(String input, @PathParam("id") String id) throws JSONException {
+    public Response SetInService(String input, @PathParam("oid") String oid) throws JSONException {
 
-        JSONObject Json = new JSONObject(new JSONTokener(input));
+        JSONObject Json = new JSONObject(input);
 
         Client client = ClientBuilder.newClient();
-        String[] a = new String[3];
-        try {
-            a[0] = Json.getString("time");
-            a[1] = Json.getString("status");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        Response hej = getInServiceOrder(id);
-        String responseAsString = hej.readEntity(String.class);
 
         JSONObject output = null;
+        String pid = "";
+        String uid = "";
+        String accTime = "";
 
         try {
+            pid = Json.getString("partner id");
+            accTime = Json.getString("acceptance time");
+            Response hej = getNewOrder(oid);
+            String responseAsString = hej.readEntity(String.class);
             output = new JSONObject(responseAsString);
+            output.put("partner id", pid);
+            output.put("acceptance time", accTime);
+            uid = output.getString("client id");
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        output.put("time", a[0]);
-        output.put("status", a[1]);
+        partners partners = new partners();
+        partners.setOrderInPartnerInService(input, pid, oid);
+        clients clients = new clients();
+        clients.setClientOrderInService(input, uid, oid);
+        deleteNewOrder(oid);
 
-        deleteInServiceOrder(id);
-
-        return client.target("https://favordrop.firebaseio.com/orders/completed/" + id + ".json").request(MediaType.APPLICATION_JSON).put(Entity.json(output.toString()));
+        return client.target("https://favordrop.firebaseio.com/orders/inservice/" + oid + ".json").request(MediaType.APPLICATION_JSON).put(Entity.json(output.toString()));
     }
 
+    @GET
+    @Path("/inservice/{oid}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getInServiceOrder(@PathParam("oid") String oid) {
+        Client client = ClientBuilder.newClient();
+        return (client.target("https://favordrop.firebaseio.com/orders/inservice/" + oid + ".json").request().get());
+    }
 
+    @DELETE
+    @Path("/inservice/{oid}")
+    public Response deleteInServiceOrder(@PathParam("oid") String oid) {
+        Client client = ClientBuilder.newClient();
+        return (client.target("https://favordrop.firebaseio.com/orders/inservice/" + oid + ".json").request().delete());
+    }
+
+    @PUT
+    @Path("/completed/{oid}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response SetAsCompleted(String input, @PathParam("oid") String oid) throws JSONException {
+
+        JSONObject Json = new JSONObject(input);
+
+        Client client = ClientBuilder.newClient();
+
+        JSONObject output = null;
+        String pid = "";
+        String uid = "";
+        String endTime = "";
+        String status = "";
+
+        try {
+            endTime= Json.getString("end time");
+            status = Json.getString("status");
+            Response hej = getInServiceOrder(oid);
+            String responseAsString = hej.readEntity(String.class);
+            output = new JSONObject(responseAsString);
+            output.put("end time", endTime);
+            output.put("status", status);
+            uid = output.getString("client id");
+            pid = output.getString("partner id");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        partners partners = new partners();
+        partners.setOrderInPartnerCompleted(input, pid, oid);
+        clients clients = new clients();
+        clients.setClientOrderCompleted(input, uid, oid);
+        deleteNewOrder(oid);
+
+        return client.target("https://favordrop.firebaseio.com/orders/completed/" + oid + ".json").request(MediaType.APPLICATION_JSON).put(Entity.json(output.toString()));
+    }
 
 }
