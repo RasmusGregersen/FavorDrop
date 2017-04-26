@@ -167,7 +167,7 @@ public class Orders {
         partners.setOrderInPartnerCompleted(output.toString(), pid, oid);
         Clients clients = new Clients();
         clients.setClientOrderCompleted(output.toString(), uid, oid);
-        deleteNewOrder(oid);
+        deleteInServiceOrder(oid);
 
         return client.target("https://favordrop.firebaseio.com/orders/completed/" + oid + ".json").request(MediaType.APPLICATION_JSON).put(Entity.json(output.toString()));
     }
