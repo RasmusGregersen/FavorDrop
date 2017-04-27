@@ -62,13 +62,17 @@ public class AuthenticationFilter implements ContainerRequestFilter {
 
             // Authenticate with Firebase.FirebaseImpl
 
+            System.out.println("så var vi her");
+            System.out.println(token);
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredential(FirebaseCredentials.fromCertificate(serviceAccount))
                     .setDatabaseUrl("https://favordrop.firebaseio.com/")
                     .build();
-            FirebaseApp.initializeApp(options);
-            FirebaseAuth auth = FirebaseAuth.getInstance();
-            System.out.println(auth.verifyIdToken(token));
+            System.out.println("HEJ HEJ");
+            FirebaseApp app = FirebaseApp.initializeApp(options);
+            FirebaseAuth auth = FirebaseAuth.getInstance(app);
+            auth.verifyIdToken(token);
+            System.out.println("så her");
         } catch (IOException e) {
             System.out.println("Service Account credentials not found: ");
             e.printStackTrace();
