@@ -1,3 +1,5 @@
+import com.google.firebase.FirebaseOptions;
+
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.util.HashSet;
@@ -14,6 +16,7 @@ public class REST extends Application{
         h.add( Clients.class );
         h.add ( Orders.class );
         h.add ( Partners.class);
+        h.add ( AuthenticationFilter.class );
 
         return h;
     }

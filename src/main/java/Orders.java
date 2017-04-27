@@ -13,11 +13,14 @@ import javax.ws.rs.core.*;
 @Path("/orders")
 public class Orders {
 
+
     @GET
+    @Secured
     @Produces(MediaType.APPLICATION_JSON)
     public Response getOrders() {
+        System.out.println("hej mor");
         Client client = ClientBuilder.newClient();
-        return client.target("https://favordrop.firebaseio.com/orders.json").request(MediaType.APPLICATION_JSON).get();
+        return client.target("https://favordrop.firebaseio.com/orders.json").request().get();
     }
 
     @POST
@@ -66,7 +69,7 @@ public class Orders {
     @GET
     @Path("/new/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getNewOrder(String id) {
+    public Response getNewOrder(@PathParam("id") String id) {
         Client client = ClientBuilder.newClient();
         return (client.target("https://favordrop.firebaseio.com/orders/new/" + id + ".json").request().get());
     }

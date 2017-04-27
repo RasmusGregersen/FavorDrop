@@ -1,8 +1,5 @@
 package Firebase;
-/*
-import Firebase.Model.Clients;
-import Firebase.Model.Order;
-import Firebase.Model.Product;
+
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -11,14 +8,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Logger;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-
+/*
  * Created by Rasmus on 17-03-2017.
  */
 public class FirebaseImpl {
-/*
+
     private FirebaseDatabase db;
     private FirebaseAuth auth;
     static DatabaseReference ref;
@@ -29,9 +27,10 @@ public class FirebaseImpl {
     }
 
     private void initializeFirebase() {
-        // Fetch the service account key JSON file contents
+//         Fetch the service account key JSON file contents
         try {
-            FileInputStream serviceAccount = new FileInputStream("serviceAccountKey.json");
+            File file = new File("serviceAccountKey.json");
+            FileInputStream serviceAccount = new FileInputStream(file);
             // Authenticate with Firebase.FirebaseImpl
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredential(FirebaseCredentials.fromCertificate(serviceAccount))
@@ -53,17 +52,9 @@ public class FirebaseImpl {
         return ref;
     }
 
-    public void addCustomer() {
-        DatabaseReference customerRef = ref.child("customers");
-        String ID = customerRef.push().getKey();
-        customerRef.child(ID).setValue(new Clients("Lasse Myrup","Vejlegårdsparken 2, 1. 17, 2665 Vallensbæk Strand"));
+    public FirebaseAuth getAuth() {
+        return auth;
     }
-    public void addOrder() {
-        DatabaseReference orderRef = ref.child("Orders");
-        String ID = orderRef.push().getKey();
-        ArrayList<Product> list = new ArrayList<Product>();
-        list.add(new Product("Vare","Adresse","Kommentar"));
-        orderRef.child(ID).setValue(new Order(23452543,2141345,list,50));
-    }
-    */
+
+
 }
