@@ -11,11 +11,11 @@ import javax.ws.rs.core.*;
  * Created by LarsMyrup on 16/04/2017.
  */
 @Path("/orders")
+@Secured
 public class Orders {
 
 
     @GET
-    @Secured
     @Produces(MediaType.APPLICATION_JSON)
     public Response getOrders() {
         System.out.println("hej mor");

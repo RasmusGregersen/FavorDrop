@@ -12,6 +12,7 @@ import javax.ws.rs.core.*;
  * Created by LarsMyrup on 16/04/2017.
  */
 @Path("/partners")
+@Secured
 public class Partners {
 
     @GET
