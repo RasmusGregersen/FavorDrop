@@ -15,6 +15,8 @@ import com.sun.xml.internal.ws.client.RequestContext;
 
 import javax.annotation.Priority;
 import javax.ws.rs.NotAuthorizedException;
+import javax.ws.rs.OPTIONS;
+import javax.ws.rs.Path;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
@@ -41,8 +43,10 @@ public class AuthenticationFilter implements ContainerRequestFilter {
     FirebaseAuth auth;
 
     public AuthenticationFilter() {
+
         try {
-            File file = new File("/serviceAccountKey.json");
+//            File file = new File("/home/ubuntu/serviceAccountKey.json");
+            File file = new File("/Users/LarsMyrup/Documents/Workspace/FavorDrop/FavorDrop-REST/serviceAccountKey.json");
             FileInputStream serviceAccount = new FileInputStream(file);
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredential(FirebaseCredentials.fromCertificate(serviceAccount))

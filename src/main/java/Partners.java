@@ -12,6 +12,7 @@ import javax.ws.rs.core.*;
  * Created by LarsMyrup on 16/04/2017.
  */
 @Path("/partners")
+@Secured
 public class Partners {
 
     @GET
@@ -23,7 +24,6 @@ public class Partners {
 
 
     @GET
-    @Secured
     @Path("/{pid}/orders")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getPartnerOrders(@PathParam("pid") String pid) {

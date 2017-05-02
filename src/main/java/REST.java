@@ -1,7 +1,18 @@
 import com.google.firebase.FirebaseOptions;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 
+import javax.json.JsonObject;
 import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.GET;
+import javax.ws.rs.Produces;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.Application;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,6 +28,8 @@ public class REST extends Application{
         h.add ( Orders.class );
         h.add ( Partners.class);
         h.add ( AuthenticationFilter.class );
+//        h.add ( Welcome.class );
+        h.add ( OptionsFilter.class );
 
         return h;
     }

@@ -10,10 +10,10 @@ import javax.ws.rs.core.*;
 /**
  * Created by LarsMyrup on 16/04/2017.
  */
-@Secured
-@Path("/orders")
-public class Orders {
 
+@Path("/orders")
+@Secured
+public class Orders {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
