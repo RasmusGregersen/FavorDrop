@@ -10,8 +10,8 @@ import javax.ws.rs.core.*;
 /**
  * Created by LarsMyrup on 16/04/2017.
  */
-@Path("/orders")
 @Secured
+@Path("/orders")
 public class Orders {
 
 

@@ -42,7 +42,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
 
     public AuthenticationFilter() {
         try {
-            File file = new File("/Users/LarsMyrup/Documents/Workspace/FavorDrop/FavorDrop-REST/serviceAccountKey.json");
+            File file = new File("/serviceAccountKey.json");
             FileInputStream serviceAccount = new FileInputStream(file);
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredential(FirebaseCredentials.fromCertificate(serviceAccount))
