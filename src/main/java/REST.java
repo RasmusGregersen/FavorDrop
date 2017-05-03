@@ -1,9 +1,3 @@
-import Filters.AuthenticationFilter;
-import Filters.OptionsFilter;
-import Resources.ClientResource;
-import Resources.OrderResource;
-import Resources.PartnerResource;
-
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.util.HashSet;
