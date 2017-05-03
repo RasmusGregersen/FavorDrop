@@ -7,33 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="469dff7a-593f-40b6-9b04-37729187aa92" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/FavorDrop_war_exploded/WEB-INF/classes/Filters/AuthenticationFilter$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/FavorDrop_war_exploded/WEB-INF/classes/Filters/AuthenticationFilter$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/FavorDrop_war_exploded/WEB-INF/classes/Filters/AuthenticationFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/FavorDrop_war_exploded/WEB-INF/classes/Filters/OptionsFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/FavorDrop_war_exploded/WEB-INF/classes/Filters/Secured.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/FavorDrop_war_exploded/WEB-INF/classes/Resources/ClientResource.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/FavorDrop_war_exploded/WEB-INF/classes/Resources/OrderResource.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/FavorDrop_war_exploded/WEB-INF/classes/Resources/PartnerResource.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Filters/AuthenticationFilter$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Filters/AuthenticationFilter$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Filters/AuthenticationFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Filters/OptionsFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Filters/Secured.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Resources/ClientResource.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Resources/OrderResource.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Resources/PartnerResource.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Filters/AuthenticationFilter.java" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Filters/OptionsFilter.java" afterPath="$PROJECT_DIR$/src/main/java/OptionsFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Filters/Secured.java" afterPath="$PROJECT_DIR$/src/main/java/Secured.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Resources/ClientResource.java" afterPath="$PROJECT_DIR$/src/main/java/ClientResource.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Resources/OrderResource.java" afterPath="$PROJECT_DIR$/src/main/java/OrderResource.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Resources/PartnerResource.java" afterPath="$PROJECT_DIR$/src/main/java/PartnerResource.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/FavorDrop_war_exploded/WEB-INF/classes/GeoLocation.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/GeoLocation.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/FavorDrop_war/FavorDrop_war.war" afterPath="$PROJECT_DIR$/out/artifacts/FavorDrop_war/FavorDrop_war.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/FavorDrop_war_exploded/WEB-INF/classes/REST.class" afterPath="$PROJECT_DIR$/out/artifacts/FavorDrop_war_exploded/WEB-INF/classes/REST.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/REST.class" afterPath="$PROJECT_DIR$/target/classes/REST.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/FavorDrop_war_exploded/WEB-INF/classes/AuthenticationFilter.class" afterPath="$PROJECT_DIR$/out/artifacts/FavorDrop_war_exploded/WEB-INF/classes/AuthenticationFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/FavorDrop_war_exploded/WEB-INF/classes/Welcome.class" afterPath="$PROJECT_DIR$/out/artifacts/FavorDrop_war_exploded/WEB-INF/classes/Welcome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/AuthenticationFilter.class" afterPath="$PROJECT_DIR$/target/classes/AuthenticationFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Welcome.class" afterPath="$PROJECT_DIR$/target/classes/Welcome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/REST.java" afterPath="$PROJECT_DIR$/src/main/java/REST.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/AuthenticationFilter.java" afterPath="$PROJECT_DIR$/src/main/java/AuthenticationFilter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Welcome.java" afterPath="$PROJECT_DIR$/src/main/java/Welcome.java" />
     </list>
     <ignored path="FavorDrop-REST.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,8 +63,20 @@
       <file leaf-file-name="AuthenticationFilter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/AuthenticationFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="107" column="46" selection-start-line="107" selection-start-column="46" selection-end-line="107" selection-end-column="46" />
+            <state relative-caret-position="438">
+              <caret line="38" column="109" selection-start-line="38" selection-start-column="109" selection-end-line="38" selection-end-column="109" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Welcome.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Welcome.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="30" column="68" selection-start-line="30" selection-start-column="68" selection-end-line="30" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -136,7 +131,7 @@
       <file leaf-file-name="OrderResource.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/OrderResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="-1050">
               <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -148,8 +143,8 @@
       <file leaf-file-name="ClientResource.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ClientResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+            <state relative-caret-position="405">
+              <caret line="66" column="45" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -191,7 +186,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/serviceAccountKey.json" />
         <option value="$PROJECT_DIR$/src/main/java/Partners.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Welcome.java" />
         <option value="$PROJECT_DIR$/src/main/java/Endpoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/Orders.java" />
         <option value="$PROJECT_DIR$/src/main/java/Clients.java" />
@@ -210,6 +204,7 @@
         <option value="$PROJECT_DIR$/src/main/java/Firebase/GeoLocation.java" />
         <option value="$PROJECT_DIR$/src/main/java/GeoLocation.java" />
         <option value="$PROJECT_DIR$/src/main/java/REST.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Welcome.java" />
         <option value="$PROJECT_DIR$/src/main/java/AuthenticationFilter.java" />
       </list>
     </option>
@@ -979,16 +974,16 @@
       <workItem from="1493721376489" duration="11792000" />
       <workItem from="1493802829028" duration="859000" />
       <workItem from="1493804413025" duration="11823000" />
-      <workItem from="1493832000433" duration="888000" />
+      <workItem from="1493832000433" duration="1622000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105179000" />
+    <option name="totallyTimeSpent" value="105913000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42755103" sideWeight="0.504884" order="7" side_tool="true" content_ui="tabs" />
@@ -1011,7 +1006,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37755102" sideWeight="0.495116" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959184" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959184" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24969475" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24969475" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1270,14 +1265,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Welcome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Firebase/FirebaseImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -1302,26 +1289,6 @@
         <state relative-caret-position="150">
           <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ClientResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/OrderResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1353,16 +1320,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/REST.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1379,10 +1336,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/OrderResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1050">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ClientResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="66" column="45" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Welcome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="68" selection-start-line="30" selection-start-column="68" selection-end-line="30" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/REST.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/AuthenticationFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="107" column="46" selection-start-line="107" selection-start-column="46" selection-end-line="107" selection-end-column="46" />
+        <state relative-caret-position="438">
+          <caret line="38" column="109" selection-start-line="38" selection-start-column="109" selection-end-line="38" selection-end-column="109" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

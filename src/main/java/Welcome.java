@@ -18,7 +18,7 @@ public class Welcome {
 
     @GET
     @Produces("application/json")
-    public String welcome() throws JSONException {
+    public Response welcome() throws JSONException {
         JSONObject json = new JSONObject();
         json.put("apiName", "FavorDrop REST api");
         json.put("servertime", Calendar.getInstance().getTime());
@@ -28,6 +28,6 @@ public class Welcome {
         json.put("phone", "71 887 888");
         json.put("mail", "contact@favordrop.dk");
 
-        return json.toString();
+        return Response.status(200).entity(json.toString()).build();
     }
 }
