@@ -1,3 +1,5 @@
+import com.sun.xml.internal.ws.client.RequestContext;
+
 import javax.ws.rs.*;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -8,20 +10,31 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Path("/clients")
-@Secured
 public class Clients {
 
+//    @OPTIONS
+//    @Secured
+//    @Path("/{id}")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public Response getOptions() {
+//        System.out.println("hej med dig");
+//        return Response.ok()
+//                .header("Access-Control-Allow-Origin", "*")
+//                .header("Access-Control-Allow-Methods", "POST, GET, PUT, UPDATE, OPTIONS")
+//                .header("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With").build();
+//    }
+
     @GET
+    @Secured
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getClichedMessage() {
+    public Response getClients() {
         Client client = ClientBuilder.newClient();
         Response res = client.target("https://favordrop.firebaseio.com/clients.json").request(MediaType.APPLICATION_JSON).get();
         return res;
     }
 
-
-
     @POST
+    @Secured
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addClient(String input) {
         Client client = ClientBuilder.newClient();
@@ -29,6 +42,7 @@ public class Clients {
     }
 
     @GET
+    @Secured
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getClient(@PathParam("id") String id) {
@@ -37,6 +51,7 @@ public class Clients {
     }
 
     @PUT
+    @Secured
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateClient(@PathParam("id") String id, String input) {
@@ -46,6 +61,7 @@ public class Clients {
 
 
     @GET
+    @Secured
     @Path("/{id}/orders")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getClientOrders(@PathParam("id") String id) {
@@ -54,6 +70,7 @@ public class Clients {
     }
 
     @PUT
+    @Secured
     @Path("/{uid}/orders/new/{oid}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addNewOrderToClient(String input, @PathParam("uid") String uid, @PathParam("oid") String oid) {
@@ -62,6 +79,7 @@ public class Clients {
     }
 
     @DELETE
+    @Secured
     @Path("/{uid}/orders/new/{oid}")
     public Response deleteNewOrderInClient(@PathParam("uid") String uid, @PathParam("oid") String oid) {
         Client client = ClientBuilder.newClient();
@@ -69,6 +87,7 @@ public class Clients {
     }
 
     @PUT
+    @Secured
     @Path("/{uid}/orders/inservice/{oid}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response setClientOrderInService(String input, @PathParam("uid") String uid, @PathParam("oid") String oid) {
@@ -78,6 +97,7 @@ public class Clients {
     }
 
     @DELETE
+    @Secured
     @Path("/{uid}/orders/inservice/{oid}")
     public Response deleteInServiceOrderInClient(@PathParam("uid") String uid, @PathParam("oid") String oid) {
         Client client = ClientBuilder.newClient();
@@ -85,6 +105,7 @@ public class Clients {
     }
 
     @GET
+    @Secured
     @Path("/{id}/orders/completed")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getClientOrdersCompleted(@PathParam("id") String id) {
@@ -93,6 +114,7 @@ public class Clients {
     }
 
     @PUT
+    @Secured
     @Path("/{uid}/orders/completed/{oid}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response setClientOrderCompleted(String input, @PathParam("uid") String uid, @PathParam("oid") String oid) {

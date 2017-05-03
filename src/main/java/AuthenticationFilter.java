@@ -11,13 +11,12 @@ import com.google.firebase.tasks.OnCompleteListener;
 import com.google.firebase.tasks.OnFailureListener;
 import com.google.firebase.tasks.OnSuccessListener;
 import com.google.firebase.tasks.Task;
+import com.sun.org.apache.regexp.internal.RE;
 import com.sun.xml.internal.ws.client.RequestContext;
+import com.sun.xml.internal.ws.client.sei.ResponseBuilder;
 
 import javax.annotation.Priority;
-import javax.ws.rs.NotAuthorizedException;
-import javax.ws.rs.OPTIONS;
-import javax.ws.rs.Path;
-import javax.ws.rs.Priorities;
+import javax.ws.rs.*;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.core.HttpHeaders;
@@ -39,6 +38,8 @@ import java.util.concurrent.locks.ReentrantLock;
 @Provider
 @Priority(Priorities.AUTHENTICATION)
 public class AuthenticationFilter implements ContainerRequestFilter {
+
+
 
     FirebaseAuth auth;
 

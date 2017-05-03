@@ -13,15 +13,21 @@ import java.util.Calendar;
  * Created by LarsMyrup on 02/05/2017.
  */
 
-@Path("/welcome")
+@Path("")
 public class Welcome {
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response welcome() throws JSONException {
+    @Produces("application/json")
+    public String welcome() throws JSONException {
         JSONObject json = new JSONObject();
-        json.append("apiName", "FavorDrop REST api");
+        json.put("apiName", "FavorDrop REST api");
+        json.put("servertime", Calendar.getInstance().getTime());
+        json.put("time zone", "UTC+01:00");
+        json.put("company name", "Favor Drop I/S");
+        json.put("url", "http://www.favordrop.dk");
+        json.put("phone", "71 887 888");
+        json.put("mail", "contact@favordrop.dk");
 
-        return Response.status(200).entity(json).build();
+        return json.toString();
     }
 }

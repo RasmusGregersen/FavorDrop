@@ -28,7 +28,7 @@ public class REST extends Application{
         h.add ( Orders.class );
         h.add ( Partners.class);
         h.add ( AuthenticationFilter.class );
-//        h.add ( Welcome.class );
+        h.add ( Welcome.class );
         h.add ( OptionsFilter.class );
 
         return h;
