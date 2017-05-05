@@ -59,10 +59,12 @@ public class ClientResource {
         JSONObject jsonObject = new JSONObject(input);
         jsonObject.put("client id", uid);
 
-        OrderResource orders = new OrderResource();
-        int oid = orders.addNewOrder(jsonObject.toString());
+        String jsonStr = jsonObject.toString();
 
-        client.target("https://favordrop.firebaseio.com/clients/"+ uid + "/orders/new/" + oid + ".json").request(MediaType.APPLICATION_JSON).put(Entity.json(jsonObject));
+        OrderResource orders = new OrderResource();
+        int oid = orders.addNewOrder(jsonStr);
+
+        client.target("https://favordrop.firebaseio.com/clients/"+ uid + "/orders/new/" + oid + ".json").request(MediaType.APPLICATION_JSON).put(Entity.json(jsonStr));
 
         return Response.status(200).entity(oid).build();
     }
