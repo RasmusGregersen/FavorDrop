@@ -1,5 +1,6 @@
 # FavorDrop - REST API
 Live version: `http://52.213.91.0:8080/FavorDrop_war/`
+
 Live version without authentication: `http://52.213.91.0:8080/FavorDrop_war_no_auth/`
 
 For at teste API’et kan Postman benyttes.
