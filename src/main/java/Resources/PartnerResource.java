@@ -90,6 +90,29 @@ public class PartnerResource {
         }
     }
 
+    @GET
+    @Secured
+    @Path("/{pid}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getPartner(@PathParam("pid") String pid) throws JSONException {
+
+        Client client = ClientBuilder.newClient();
+        Response resp = client.target("https://favordrop.firebaseio.com/partners/"+ pid + ".json").request(MediaType.APPLICATION_JSON).get();
+
+        String respString = resp.readEntity(String.class);
+
+        if ("null".equals(respString)) {
+            return Response.status(200).entity("null").build();
+        }
+        else {
+            JSONObject json = new JSONObject((respString));
+            if (!(json.isNull("orders"))) {
+                JSONObject orders = setOrderSubtree(json, pid);
+                json.put("orders", orders);
+            }
+            return Response.status(200).entity(json.toString()).build();
+        }
+    }
 
     @GET
     @Path("/{pid}/orders")
