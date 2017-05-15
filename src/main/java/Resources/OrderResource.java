@@ -164,7 +164,7 @@ public class OrderResource {
             e.printStackTrace();
         }
 
-        uid = uid.substring(41,uid.length());
+        uid = uid.substring(uid.lastIndexOf('/') + 1,uid.length());
 
 
         PartnerResource partners = new PartnerResource();
@@ -335,8 +335,8 @@ public class OrderResource {
             e.printStackTrace();
         }
 
-        uid = uid.substring(41,uid.length());
-        pid = pid.substring(42,pid.length());
+        uid = uid.substring(uid.lastIndexOf('/') + 1,uid.length());
+        pid = pid.substring(pid.lastIndexOf('/') + 1,pid.length());
 
         PartnerResource partners = new PartnerResource();
         partners.setOrderInPartnerCompleted(output.toString(), pid, oid);

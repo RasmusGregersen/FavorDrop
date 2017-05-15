@@ -19,7 +19,7 @@ import java.util.Calendar;
 @Path("")
 public class Welcome {
     //URL deployed:
-    final static String baseURL = "http://52.213.91.0:8080/FavorDrop_war";
+    final static String baseURL = "http://52.213.91.0/FavorDrop_war";
     //URL for testing on localhost:
 //    final static String baseURL = "http://localhost:8080/FavorDrop_war_exploded";
 

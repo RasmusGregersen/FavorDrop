@@ -119,13 +119,7 @@ public class PartnerResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getPartnerOrders(@PathParam("pid") String pid) throws JSONException {
         Client client = ClientBuilder.newClient();
-        Response resp = client.target("https://favordrop.firebaseio.com/partners/" + pid + ".json").request(MediaType.APPLICATION_JSON).get();
-        String respStr = (resp.readEntity(String.class));
-        System.out.println("respStr er: " + respStr);
-        JSONObject json = new JSONObject(respStr);
-        JSONObject orders = setOrderSubtree(json, pid);
-
-        return Response.status(200).entity(orders.toString()).build();
+        return client.target("https://favordrop.firebaseio.com/partners/" + pid + "/orders.json").request(MediaType.APPLICATION_JSON).get();
     }
 
     @GET
