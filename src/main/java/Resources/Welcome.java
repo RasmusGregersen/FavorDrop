@@ -39,6 +39,8 @@ public class Welcome {
         resources.put("Orders", baseURL + "/orders");
         resources.put("Partners", baseURL + "/partners");
 
+        json.putOpt("Resources:", resources);
+
         return Response.status(200).entity(json.toString()).build();
     }
 }
